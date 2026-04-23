@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>الحاسبة المطورة للعام الدراسي 1448هـ</title>
+    <title>الحاسبة المطورة للعام الدراسي 1448هـ - Elite Story</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-1: #eaf4f1;
-            --bg-2: #f9f5eb;
-            --card-bg: rgba(255, 255, 255, 0.92);
+            --bg-1: #edf7f4;
+            --bg-2: #fbf7ef;
+            --bg-3: #f4efe5;
+            --card-bg: rgba(255, 255, 255, 0.94);
             --primary: #0b6b5b;
             --primary-dark: #06483e;
             --accent: #c8a96b;
-            --accent-soft: #f5ebd8;
+            --accent-soft: #f8efde;
             --text: #18312c;
             --muted: #64756f;
             --border: rgba(11, 107, 91, 0.12);
-            --shadow: 0 18px 45px rgba(4, 56, 48, 0.12);
-            --radius-xl: 26px;
-            --radius-lg: 18px;
+            --shadow: 0 22px 55px rgba(4, 56, 48, 0.12);
+            --shadow-soft: 0 14px 35px rgba(4, 56, 48, 0.08);
+            --radius-xl: 28px;
+
             --success: #1f7a47;
             --info: #0f6c78;
             --kg: #9c295e;
@@ -31,6 +33,15 @@
             --secondary: #8e6a09;
             --neutral: #546e7a;
             --danger: #455a64;
+
+            --whatsapp-1: #2dd36f;
+            --whatsapp-2: #159a4d;
+            --telegram-1: #33a9e8;
+            --telegram-2: #1d7fb7;
+            --copy-1: #7b8794;
+            --copy-2: #5b6570;
+            --image-1: #f59e0b;
+            --image-2: #d97706;
         }
 
         * {
@@ -49,9 +60,9 @@
             font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
             color: var(--text);
             background:
-                radial-gradient(circle at top right, rgba(200, 169, 107, 0.22), transparent 28%),
-                radial-gradient(circle at bottom left, rgba(11, 107, 91, 0.18), transparent 32%),
-                linear-gradient(135deg, var(--bg-1), var(--bg-2));
+                radial-gradient(circle at top right, rgba(200, 169, 107, 0.24), transparent 24%),
+                radial-gradient(circle at bottom left, rgba(11, 107, 91, 0.18), transparent 30%),
+                linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
             overflow-x: hidden;
         }
 
@@ -66,7 +77,7 @@
 
         .app-shell {
             width: 100%;
-            max-width: 560px;
+            max-width: 580px;
             min-height: calc(100vh - 28px);
             display: flex;
             flex-direction: column;
@@ -76,12 +87,13 @@
         .hero {
             position: relative;
             overflow: hidden;
-            border-radius: 22px;
-            padding: 12px 18px;
+            border-radius: 24px;
+            padding: 14px 18px;
             background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             color: #fff;
             box-shadow: var(--shadow);
             animation: fadeUp 0.8s ease both;
+            isolation: isolate;
         }
 
         .hero::before,
@@ -91,43 +103,42 @@
             border-radius: 50%;
             background: rgba(255,255,255,0.08);
             pointer-events: none;
+            z-index: -1;
         }
 
         .hero::before {
-            width: 180px;
-            height: 180px;
-            top: -55px;
-            left: -40px;
+            width: 190px;
+            height: 190px;
+            top: -65px;
+            left: -38px;
         }
 
         .hero::after {
-            width: 130px;
-            height: 130px;
-            bottom: -35px;
-            right: -25px;
+            width: 135px;
+            height: 135px;
+            bottom: -36px;
+            right: -24px;
         }
 
         .hero h1 {
             margin: 0;
-            font-size: 1.18rem;
-            line-height: 1.8;
-            font-weight: 800;
+            font-size: 1.14rem;
+            line-height: 1.9;
+            font-weight: 900;
             text-align: center;
+            letter-spacing: .1px;
         }
 
         .card {
             position: relative;
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.55);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.58);
             border-radius: var(--radius-xl);
             padding: 18px;
             box-shadow: var(--shadow);
             animation: fadeUp 0.85s ease both;
         }
-
-        .card:nth-child(2) { animation-delay: 0.08s; }
-        .card:nth-child(3) { animation-delay: 0.16s; }
 
         .card-header {
             display: flex;
@@ -137,28 +148,22 @@
         }
 
         .icon-wrap {
-            width: 48px;
-            height: 48px;
-            border-radius: 16px;
+            width: 50px;
+            height: 50px;
+            border-radius: 18px;
             display: grid;
             place-items: center;
-            background: linear-gradient(135deg, rgba(11, 107, 91, 0.12), rgba(200, 169, 107, 0.22));
+            background: linear-gradient(135deg, rgba(11, 107, 91, 0.12), rgba(200, 169, 107, 0.24));
             color: var(--primary);
             flex-shrink: 0;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
         }
 
         .card-header h2 {
             margin: 0;
             font-size: 1.05rem;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--primary-dark);
-        }
-
-        .card-header span {
-            display: block;
-            color: var(--muted);
-            font-size: 0.8rem;
-            margin-top: 2px;
         }
 
         .input-row {
@@ -175,21 +180,21 @@
 
         label {
             font-size: 0.79rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary-dark);
             padding-right: 4px;
         }
 
         select {
             width: 100%;
-            min-height: 48px;
+            min-height: 50px;
             border: 1px solid var(--border);
-            border-radius: 14px;
+            border-radius: 15px;
             background: #fff;
             color: var(--text);
             font-family: inherit;
             font-size: 0.96rem;
-            font-weight: 600;
+            font-weight: 700;
             padding: 0 10px;
             outline: none;
             transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
@@ -198,7 +203,7 @@
 
         select:focus {
             border-color: rgba(11, 107, 91, 0.45);
-            box-shadow: 0 0 0 4px rgba(11, 107, 91, 0.1);
+            box-shadow: 0 0 0 4px rgba(11, 107, 91, 0.10);
             transform: translateY(-1px);
         }
 
@@ -209,13 +214,13 @@
         button {
             border: none;
             width: 100%;
-            min-height: 52px;
+            min-height: 54px;
             border-radius: 16px;
             font-family: inherit;
             font-size: 1rem;
-            font-weight: 800;
+            font-weight: 900;
             cursor: pointer;
-            transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+            transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, opacity .18s ease;
         }
 
         button:hover { transform: translateY(-2px); }
@@ -224,26 +229,27 @@
         .btn-main {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
-            box-shadow: 0 14px 25px rgba(11, 107, 91, 0.22);
+            box-shadow: 0 14px 28px rgba(11, 107, 91, 0.24);
         }
 
         .btn-calc {
-            background: linear-gradient(135deg, #d4b57a, #b69149);
+            background: linear-gradient(135deg, #d8bb83, #b78f45);
             color: #17342d;
-            box-shadow: 0 14px 25px rgba(182, 145, 73, 0.22);
+            box-shadow: 0 14px 28px rgba(182, 145, 73, 0.25);
         }
 
         .result-box {
             margin-top: 14px;
             display: none;
-            border-radius: 18px;
-            padding: 14px;
-            background: linear-gradient(135deg, #fffaf0, var(--accent-soft));
-            border: 1px solid rgba(200, 169, 107, 0.36);
+            border-radius: 20px;
+            padding: 14px 16px;
+            background: linear-gradient(135deg, #fffaf1, var(--accent-soft));
+            border: 1px solid rgba(200, 169, 107, 0.34);
             color: var(--primary-dark);
-            font-weight: 700;
-            line-height: 1.8;
+            font-weight: 800;
+            line-height: 1.9;
             animation: zoomFade .35s ease;
+            box-shadow: var(--shadow-soft);
         }
 
         .result-box strong {
@@ -253,49 +259,101 @@
 
         .result-area {
             display: none;
-            margin-top: 15px;
+            margin-top: 16px;
             animation: zoomFade .35s ease;
+        }
+
+        .capture-card {
+            border-radius: 24px;
+            overflow: hidden;
         }
 
         .stage {
             display: none;
-            border-radius: 20px;
-            padding: 18px 16px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            padding: 18px 16px 14px;
             color: #fff;
-            font-size: 1.05rem;
-            font-weight: 800;
-            line-height: 1.9;
             text-align: center;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.14);
+        }
+
+        .stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 30%),
+                linear-gradient(to bottom, rgba(255,255,255,0.06), transparent);
+            pointer-events: none;
+        }
+
+        .stage-top-icons {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .mini-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.18);
+            backdrop-filter: blur(8px);
         }
 
         .stage-title {
-            font-size: 1.08rem;
+            font-size: 1.12rem;
+            font-weight: 900;
+            line-height: 1.9;
+            margin-bottom: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .capture-meta {
+            margin-top: 12px;
+            padding: 10px 12px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.18);
+            font-size: 0.84rem;
             font-weight: 800;
             line-height: 1.9;
+            position: relative;
+            z-index: 1;
         }
 
         .age-cards {
-            margin-top: 14px;
+            margin-top: 16px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             direction: ltr;
+            position: relative;
+            z-index: 1;
         }
 
         .age-card {
-            background: rgba(255,255,255,0.16);
+            background: rgba(255,255,255,0.14);
             border: 1px solid rgba(255,255,255,0.18);
-            border-radius: 16px;
-            padding: 12px 8px;
+            border-radius: 18px;
+            padding: 13px 8px;
             backdrop-filter: blur(8px);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
         }
 
         .age-number {
             display: block;
-            font-size: 1.35rem;
-            font-weight: 800;
+            font-size: 1.45rem;
+            font-weight: 900;
             line-height: 1.2;
             margin-bottom: 4px;
         }
@@ -303,26 +361,164 @@
         .age-label {
             display: block;
             font-size: 0.82rem;
-            font-weight: 700;
-            opacity: 0.95;
+            font-weight: 800;
+            opacity: 0.96;
+        }
+
+        .share-panel {
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.90), rgba(249,245,235,0.95));
+            border: 1px solid rgba(11, 107, 91, 0.08);
+            box-shadow: var(--shadow-soft);
+            display: none;
+        }
+
+        .share-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.92rem;
+            font-weight: 900;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .share-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+            border-radius: 16px;
+            font-size: 0.92rem;
+            font-weight: 900;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+        }
+
+        .share-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-1), var(--whatsapp-2));
+        }
+
+        .share-telegram {
+            background: linear-gradient(135deg, var(--telegram-1), var(--telegram-2));
+        }
+
+        .share-copy {
+            background: linear-gradient(135deg, var(--copy-1), var(--copy-2));
+        }
+
+        .share-image {
+            background: linear-gradient(135deg, var(--image-1), var(--image-2));
+        }
+
+        .copy-status {
+            display: none;
+            margin-top: 10px;
+            padding: 11px 12px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(11, 107, 91, 0.08), rgba(200, 169, 107, 0.10));
+            border: 1px solid rgba(11, 107, 91, 0.08);
+            color: var(--primary-dark);
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-align: center;
         }
 
         .footer {
             text-align: center;
-            padding: 6px 8px 2px;
+            padding: 8px 8px 2px;
             color: var(--primary-dark);
             animation: fadeUp 1s ease both;
         }
 
         .footer .name {
-            font-weight: 800;
-            font-size: 0.95rem;
+            font-weight: 900;
+            font-size: 0.96rem;
         }
 
         .footer .version {
             color: var(--muted);
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             margin-top: 4px;
+            font-weight: 700;
+        }
+
+        .share-capture-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: -9999;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .share-capture-frame {
+            width: 1080px;
+            height: 1920px;
+            padding: 90px 70px;
+            background:
+                radial-gradient(circle at top right, rgba(200, 169, 107, 0.30), transparent 22%),
+                radial-gradient(circle at bottom left, rgba(11, 107, 91, 0.24), transparent 28%),
+                linear-gradient(160deg, #edf7f4 0%, #fbf7ef 48%, #f4efe5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-capture-card {
+            width: 100%;
+            max-width: 760px;
+            border-radius: 42px;
+            padding: 28px;
+            background: rgba(255,255,255,0.34);
+            border: 1px solid rgba(255,255,255,0.55);
+            box-shadow: 0 35px 80px rgba(4, 56, 48, 0.16);
+            backdrop-filter: blur(12px);
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .story-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.72);
+            color: var(--primary-dark);
+            border: 1px solid rgba(11, 107, 91, 0.08);
+            box-shadow: 0 10px 24px rgba(4, 56, 48, 0.08);
+            font-size: 1rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .story-title {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1.7;
+            color: var(--primary-dark);
+        }
+
+        .story-subtitle {
+            margin-top: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--muted);
         }
 
         @keyframes fadeUp {
@@ -358,8 +554,8 @@
             }
 
             .hero {
-                padding: 10px 14px;
-                border-radius: 18px;
+                padding: 11px 14px;
+                border-radius: 20px;
             }
 
             .hero h1 {
@@ -368,7 +564,7 @@
 
             .card {
                 padding: 16px;
-                border-radius: 22px;
+                border-radius: 24px;
             }
 
             .input-row {
@@ -376,18 +572,18 @@
             }
 
             select {
-                min-height: 46px;
+                min-height: 47px;
                 font-size: 0.9rem;
                 padding: 0 8px;
             }
 
             button {
                 min-height: 50px;
-                font-size: 0.96rem;
+                font-size: 0.95rem;
             }
 
-            .stage {
-                font-size: 0.98rem;
+            .stage-title {
+                font-size: 1.02rem;
             }
 
             .age-cards {
@@ -395,16 +591,20 @@
             }
 
             .age-card {
-                padding: 10px 6px;
-                border-radius: 14px;
+                padding: 11px 6px;
+                border-radius: 16px;
             }
 
             .age-number {
-                font-size: 1.15rem;
+                font-size: 1.18rem;
             }
 
             .age-label {
-                font-size: 0.74rem;
+                font-size: 0.75rem;
+            }
+
+            .share-actions {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -483,7 +683,54 @@
                 </div>
 
                 <div id="resultArea" class="result-area">
-                    <div id="stageOutput" class="stage"></div>
+                    <div id="captureCard" class="capture-card">
+                        <div id="stageOutput" class="stage"></div>
+                    </div>
+
+                    <div id="sharePanel" class="share-panel">
+                        <div class="share-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <path d="M15 8L19 12L15 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            مشاركة النتيجة كصورة 
+                        </div>
+
+                        <div class="share-actions">
+                            <button class="share-btn share-whatsapp" onclick="shareImageToApp('whatsapp')">
+                                <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M19.11 17.21c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.31.2-.58.07-.27-.14-1.12-.41-2.14-1.31-.79-.7-1.33-1.57-1.49-1.84-.15-.27-.02-.41.12-.54.12-.12.27-.31.41-.46.14-.15.18-.27.27-.46.09-.18.05-.35-.02-.49-.07-.14-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.44h-.5c-.18 0-.46.07-.7.35-.24.27-.92.9-.92 2.2s.94 2.55 1.07 2.73c.14.18 1.85 2.82 4.49 3.96.63.27 1.13.43 1.52.55.64.2 1.22.17 1.68.1.51-.08 1.58-.65 1.81-1.28.22-.63.22-1.16.15-1.27-.06-.11-.24-.17-.51-.31z"/>
+                                    <path d="M16 3C8.82 3 3 8.82 3 16c0 2.53.72 4.99 2.09 7.11L3.5 28.5l5.54-1.45A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23.64c-2.08 0-4.12-.56-5.9-1.62l-.42-.25-3.29.86.88-3.21-.27-.44A10.62 10.62 0 0 1 5.36 16C5.36 10.12 10.12 5.36 16 5.36S26.64 10.12 26.64 16 21.88 26.64 16 26.64z"/>
+                                </svg>
+                                واتساب
+                            </button>
+
+                            <button class="share-btn share-telegram" onclick="shareImageToApp('telegram')">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21.5 4.5L18.3 19c-.2 1-.8 1.2-1.6.7l-4.4-3.2-2.1 2c-.2.2-.4.4-.8.4l.3-4.5 8.2-7.4c.4-.3-.1-.5-.5-.2l-10.1 6.4-4.4-1.4c-1-.3-1-.9.2-1.4l17.3-6.7c.8-.3 1.5.2 1.2 1.5z"/>
+                                </svg>
+                                تليجرام
+                            </button>
+
+                            <button class="share-btn share-copy" onclick="copyResult()">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M5 15V6C5 4.9 5.9 4 7 4H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                نسخ النتيجة
+                            </button>
+
+                            <button class="share-btn share-image" onclick="saveResultAsImage()">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 16V4M12 16L8 12M12 16L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="4" y="17" width="16" height="3" rx="1.5" fill="currentColor"/>
+                                </svg>
+                                حفظ كصورة
+                            </button>
+                        </div>
+
+                        <div id="copyStatus" class="copy-status"></div>
+                    </div>
                 </div>
             </section>
 
@@ -491,13 +738,20 @@
                 <div class="name">تصميم أ. خالد محمد الحربي® 2026</div>
                 <div class="version">0504509080</div>
                 <div class="version">allihaibi@gmail.com</div>
-                <div class="version">Version 3.1</div>
+                <div class="version">Version 4.0 Elite</div>
             </div>
+        </div>
+    </div>
+
+    <div id="shareCaptureWrapper" class="share-capture-wrapper">
+        <div class="share-capture-frame">
+            <div class="share-capture-card" id="shareCaptureCard"></div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment-hijri@2.1.2/moment-hijri.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
         const hijriMonths = [
@@ -511,6 +765,12 @@
             "5 - مايو", "6 - يونيو", "7 - يوليو", "8 - أغسطس",
             "9 - سبتمبر", "10 - أكتوبر", "11 - نوفمبر", "12 - ديسمبر"
         ];
+
+        let lastResultText = "";
+        let lastBirthDateText = "";
+        let lastAgeText = "";
+        let lastStageText = "";
+        let lastResolvedColor = "";
 
         window.onload = function () {
             const hDay = document.getElementById("hDay");
@@ -529,7 +789,7 @@
                 hMonth.innerHTML += `<option value="${index + 1}">${month}</option>`;
             });
 
-            for (let i = 1460; i >= 1390; i--) {
+            for (let i = 1450; i >= 1390; i--) {
                 hYear.innerHTML += `<option value="${i}">${i}</option>`;
             }
 
@@ -558,6 +818,12 @@
             hResult.innerHTML = message;
         }
 
+        function showCopyStatus(message) {
+            const copyStatus = document.getElementById("copyStatus");
+            copyStatus.style.display = "block";
+            copyStatus.textContent = message;
+        }
+
         function convertHijri() {
             const hDay = document.getElementById("hDay").value;
             const hMonth = document.getElementById("hMonth").value;
@@ -574,7 +840,7 @@
             const gMonth = date.format("M");
             const gDay = date.format("D");
 
-            showHijriResult(`التاريخ الميلادي: <strong>${gYear}/${String(gMonth).padStart(2, "0")}/${String(gDay).padStart(2, "0")}</strong>`);
+            showHijriResult(`تم التحويل بنجاح — التاريخ الميلادي: <strong>${gYear}/${String(gMonth).padStart(2, "0")}/${String(gDay).padStart(2, "0")}</strong>`);
 
             setGregorianDate(gDay, gMonth, gYear);
             calculate();
@@ -606,9 +872,14 @@
 
             const resultArea = document.getElementById("resultArea");
             const stageOut = document.getElementById("stageOutput");
+            const sharePanel = document.getElementById("sharePanel");
+            const copyStatus = document.getElementById("copyStatus");
 
             resultArea.style.display = "block";
             stageOut.style.display = "block";
+            sharePanel.style.display = "block";
+            copyStatus.style.display = "none";
+            copyStatus.textContent = "";
 
             let text = "";
             let color = "";
@@ -677,8 +948,51 @@
                 color = "var(--danger)";
             }
 
-            stageOut.innerHTML = `
+            lastBirthDateText = `${String(d).padStart(2, "0")}/${String(m).padStart(2, "0")}/${y}`;
+            lastAgeText = `${years} سنة - ${months} شهر - ${days} يوم`;
+            lastStageText = text;
+            lastResolvedColor = resolveColor(color);
+
+            stageOut.innerHTML = createStageMarkup(text, lastBirthDateText, lastAgeText, years, months, days);
+            stageOut.style.background = `linear-gradient(135deg, ${lastResolvedColor}, ${darkenColor(lastResolvedColor)})`;
+
+            lastResultText =
+`نتيجة حاسبة الصف المستحق
+تاريخ الميلاد: ${lastBirthDateText}
+العمر:
+${lastAgeText}
+النتيجة: ${text}`;
+        }
+
+        function createStageMarkup(text, birthDate, ageText, years, months, days) {
+            return `
+                <div class="stage-top-icons">
+                    <div class="mini-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M8 2V5M16 2V5M3 9H21M5 4H19C20.1046 4 21 4.89543 21 6V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V6C3 4.89543 3.89543 4 5 4Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="mini-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 14C15.3137 14 18 11.3137 18 8C18 4.68629 15.3137 2 12 2C8.68629 2 6 4.68629 6 8C6 11.3137 8.68629 14 12 14Z" stroke="currentColor" stroke-width="1.6"/>
+                            <path d="M4 21C4.85038 18.1085 7.17792 16 12 16C16.8221 16 19.1496 18.1085 20 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="mini-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+                        </svg>
+                    </div>
+                </div>
+
                 <div class="stage-title">${text}</div>
+
+                <div class="capture-meta">
+                    <div><strong>تاريخ الميلاد:</strong> ${birthDate}</div>
+                    <div><strong>العمر:</strong> ${ageText}</div>
+                </div>
+
                 <div class="age-cards">
                     <div class="age-card">
                         <span class="age-number">${years}</span>
@@ -694,8 +1008,6 @@
                     </div>
                 </div>
             `;
-
-            stageOut.style.background = `linear-gradient(135deg, ${resolveColor(color)}, ${darkenColor(resolveColor(color))})`;
         }
 
         function resolveColor(variableName) {
@@ -713,6 +1025,151 @@
             const [r, g, b] = values.map(Number);
             const darken = (v) => Math.max(0, Math.round(v * 0.78));
             return `rgb(${darken(r)}, ${darken(g)}, ${darken(b)})`;
+        }
+
+        function getShareText() {
+            return lastResultText || "لم يتم حساب النتيجة بعد.";
+        }
+
+        async function copyResult() {
+            const text = getShareText();
+
+            try {
+                await navigator.clipboard.writeText(text);
+                showCopyStatus("تم نسخ النتيجة النصية بنجاح.");
+            } catch (error) {
+                showCopyStatus("تعذر نسخ النتيجة تلقائيًا.");
+            }
+        }
+
+        function createShareCaptureElement() {
+            if (!lastResultText) throw new Error("no-result");
+
+            const wrapper = document.getElementById("shareCaptureWrapper");
+            const card = document.getElementById("shareCaptureCard");
+
+            const ageParts = lastAgeText.split(" - ");
+            const years = ageParts[0]?.match(/\d+/)?.[0] || "0";
+            const months = ageParts[1]?.match(/\d+/)?.[0] || "0";
+            const days = ageParts[2]?.match(/\d+/)?.[0] || "0";
+
+            card.innerHTML = `
+                <div class="story-header">
+                    <div class="story-badge">حساب الصف المستحق</div>
+                    <h2 class="story-title">نتيجة الطالب</h2>
+                    <div class="story-subtitle">للعام الدراسي 1448 هـ</div>
+                </div>
+
+                <div class="stage" style="
+                    display:block;
+                    background: linear-gradient(135deg, ${lastResolvedColor}, ${darkenColor(lastResolvedColor)});
+                    border-radius: 34px;
+                    padding: 28px 24px 24px;
+                    box-shadow: 0 26px 50px rgba(0,0,0,0.16);
+                ">
+                    ${createStageMarkup(lastStageText, lastBirthDateText, lastAgeText, years, months, days)}
+                </div>
+            `;
+
+            wrapper.style.opacity = "1";
+            wrapper.style.zIndex = "9999";
+
+            return { wrapper, card };
+        }
+
+        function cleanupShareCapture() {
+            const wrapper = document.getElementById("shareCaptureWrapper");
+            const card = document.getElementById("shareCaptureCard");
+            wrapper.style.opacity = "0";
+            wrapper.style.zIndex = "-9999";
+            card.innerHTML = "";
+        }
+
+        async function generateResultBlob() {
+            const sharePanel = document.getElementById("sharePanel");
+
+            if (!lastResultText) {
+                throw new Error("no-result");
+            }
+
+            const originalDisplay = sharePanel.style.display;
+            sharePanel.style.display = "none";
+
+            try {
+                const { card } = createShareCaptureElement();
+                await new Promise(resolve => setTimeout(resolve, 120));
+
+                const canvas = await html2canvas(card, {
+                    backgroundColor: null,
+                    scale: 2.5,
+                    useCORS: true
+                });
+
+                const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+                if (!blob) throw new Error("blob-failed");
+
+                return blob;
+            } finally {
+                cleanupShareCapture();
+                sharePanel.style.display = originalDisplay || "block";
+            }
+        }
+
+        async function saveBlobAsImage(blob) {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "نتيجة-حاسبة-الصف-المستحق-story.png";
+            link.click();
+            setTimeout(() => URL.revokeObjectURL(url), 1500);
+        }
+
+        async function shareImageToApp(appName) {
+            try {
+                showCopyStatus("جارٍ تجهيز صورة Story...");
+                const blob = await generateResultBlob();
+                const file = new File([blob], "نتيجة-حاسبة-الصف-المستحق-story.png", { type: "image/png" });
+
+                if (navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share) {
+                    await navigator.share({
+                        title: "نتيجة حاسبة الصف المستحق",
+                        text: appName === "whatsapp" ? "مشاركة الصورة عبر واتساب" : "مشاركة الصورة عبر تليجرام",
+                        files: [file]
+                    });
+                    showCopyStatus("تم فتح نافذة مشاركة صورة Story. اختر التطبيق المطلوب.");
+                } else {
+                    showCopyStatus("هذا الجهاز لا يدعم إرسال الصورة مباشرة من المتصفح. تم حفظ صورة Story بدلًا من ذلك.");
+                    await saveBlobAsImage(blob);
+                }
+            } catch (error) {
+                if (error.message === "no-result") {
+                    showCopyStatus("قم بحساب النتيجة أولاً قبل مشاركتها.");
+                    return;
+                }
+
+                try {
+                    const blob = await generateResultBlob();
+                    await saveBlobAsImage(blob);
+                    showCopyStatus("تعذر فتح المشاركة المباشرة. تم حفظ صورة Story بدلًا من ذلك.");
+                } catch {
+                    showCopyStatus("تعذر تجهيز صورة Story.");
+                }
+            }
+        }
+
+        async function saveResultAsImage() {
+            try {
+                showCopyStatus("جارٍ تجهيز صورة Story...");
+                const blob = await generateResultBlob();
+                await saveBlobAsImage(blob);
+                showCopyStatus("تم حفظ صورة Story بنجاح.");
+            } catch (error) {
+                if (error.message === "no-result") {
+                    showCopyStatus("قم بحساب النتيجة أولاً قبل حفظها كصورة.");
+                } else {
+                    showCopyStatus("تعذر حفظ صورة Story. حاول مرة أخرى.");
+                }
+            }
         }
     </script>
 </body>
